@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Group;
 use App\Entity\Trick;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -25,23 +26,12 @@ class TrickType extends AbstractType
             ->add('title', TextType::class, ['required' => false])
             ->add('content', TextareaType::class, ['required' => false])
             ->add('isPublished', CheckboxType::class, ['required' => false])
-            ->add('group', ChoiceType::class, [
-                'choices' => [
-                    new Group('Groupe 1'),
-                    new Group('Groupe 2'),
-                    new Group('Groupe 3'),
-                    new Group('Groupe 4'),
-                ],
-                'expanded' => true,
+            ->add('group', EntityType::class, [
+                'class' => Group::class,
+                'choice_label' => 'label',
                 'multiple' => false,
-                'choice_value' => 'label',
-                'choice_label' => function(?Group $group) {
-                    return $group ? strtoupper($group->getLabel()) : '';
-                    },
-                    'choice_attr' => function(?Group $group) {
-                        return $group ? ['class' => 'category_'.strtolower($group->getLabel())] : [];
-                    },
-
+                'expanded' => false,
+                'required' => false
                 ]);
 
         ;

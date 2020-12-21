@@ -10,6 +10,7 @@
                     <div class="article-card">
                         <img src="{{ asset('uploads/' ~ trick.picture) }}" class="responsive-img" >
                         <h2><a href="{{ path('trick_show', {'id': trick.id}) }}">{{ trick.title }}</a></h2>
+                        <h3>{{ trick.group }}</h3>
                         <span class="date">{{ trick.publicationDate|date('d/m/Y') }}</span>
                     </div>
                 </div>

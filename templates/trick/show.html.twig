@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col s12 m12 l8 offset-l2">
             <h2>{{ trick.title }}</h2>
+            <h2>{{ trick.group }}</h2>
             <span>{{ trick.publicationDate|date('d/m/Y') }}</span>
             <p>
                 <img src="{{ asset('uploads/' ~ trick.picture) }}" class="responsive-img">
