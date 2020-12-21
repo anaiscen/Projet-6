@@ -1,0 +1,19 @@
+{# templates/trick/edit.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}Modifier{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <h4>Modifier le trick {{ trick.title }}</h4>
+                {% if trick.picture is not null %}
+                    <img width="300" src="{{ asset('uploads/' ~ trick.picture) }}">
+                {% endif %}
+            </div>
+        </div>
+         {% include "trick/trick_form.html.twig" %}
+    </div>
+{% endblock %}
