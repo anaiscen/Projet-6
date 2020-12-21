@@ -13,10 +13,16 @@
 <nav>
     <div class="nav-wrapper">
         <div class="container">
-            <a href="#" class="brand-logo">SnowTricks</a>
+            <a href="{{ path('trick') }}" class="brand-logo">SnowTricks</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{ path('trick') }}">Accueil</a></li>
+                <li><a href="{{ path('trick') }}">Tricks</a></li>
+                {% if app.user %}
+                    <li><a href="/p06/public/logout">Déconnexion</a></li>
+                {% else %}
+                    <li><a href="/p06/public/register">Inscription</a></li>
+                    <li><a href="/p06/public/login">Connexion</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

@@ -3,6 +3,7 @@
 {% block title %}Accueil | {{ parent() }}{% endblock %}
 
 {% block content %}
+    <h4><a href="{{ path('trick_add') }}">Nouveau Trick</a></h4>
     <div class="container">
         <div class="row">
             {% for trick in tricks %}

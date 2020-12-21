@@ -8,6 +8,8 @@
             <h2>{{ trick.title }}</h2>
             <h2>{{ trick.group }}</h2>
             <span>{{ trick.publicationDate|date('d/m/Y') }}</span>
+            <h2><a href="{{ path('trick_edit', {'id': trick.id}) }}">Modifier</a></h2>
+            <h2><a href="{{ path('trick_remove', {'id': trick.id}) }}">Supprimer</a></h2>
             <p>
                 <img src="{{ asset('uploads/' ~ trick.picture) }}" class="responsive-img">
             </p>
