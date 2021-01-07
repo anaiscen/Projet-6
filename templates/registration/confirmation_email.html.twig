@@ -1,10 +1,10 @@
-<h1>Hi {{ user.username }}</h1>
+<p>Bonjour {{ user.username }},</p>
 
 <p>
-    Please confirm your email address by clicking the following link: <br><br>
-    <a href="{{ url('app_verify', {username : user.username , token: user.token}) }}">Confirm my Email</a>.
+    Pour confirmer votre email cliquez sur le lien suivant : <br><br>
+    <a href="{{ url('app_verify', {username : user.username , token: user.token}) }}">Confirmer mon email</a>
 </p>
 
 <p>
-    See you soon on Snow Tricks !
+    A bientôt sur SnowTricks !
 </p>

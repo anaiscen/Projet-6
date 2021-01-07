@@ -3,24 +3,39 @@
 {% block title %}Inscription{% endblock %}
 
 {% block content %}
-    <div class="container center">
-        <h1>Inscription</h1>
-        {{ form_start(registrationForm, {'attr': {'class': 'row'}}) }}
-        <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
-            {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'Adresse email'}}) }}
-            <span class="error">{{ form_errors(registrationForm.email) }}</span>
+    <div class="container2">
+        <br>
+        <h2 class="text-center mb-0">Inscription</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form method="post" action="">
+                    <div class="control-group">
+                        {{ form_start(registrationForm, {'attr': {'class': 'row'}}) }}
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label for="title">Adresse email : </label><br>
+                            {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'Adresse email', 'class': 'formStyle'}}) }}
+                            <span class="error">{{ form_errors(registrationForm.email) }}</span>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label for="title">Nom d'utilisateur : </label><br>
+                            {{ form_widget(registrationForm.username, {'attr': {'placeholder': 'Nom d\'utilisateur', 'class': 'formStyle'}}) }}
+                            <span class="error">{{ form_errors(registrationForm.username) }}</span>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label for="title">Mot de passe : </label><br>
+                            {{ form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Mot de passe', 'class': 'formStyle'}}) }}
+                            <span class="error">{{ form_errors(registrationForm.plainPassword) }}</span>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="submit" name="" class="btn btn-primary" value="M'inscrire">
+                        </div>
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
-            {{ form_widget(registrationForm.username, {'attr': {'placeholder': 'Nom d\'utilisateur'}}) }}
-            <span class="error">{{ form_errors(registrationForm.username) }}</span>
-        </div>
-        <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
-            {{ form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Mot de passe'}}) }}
-            <span class="error">{{ form_errors(registrationForm.plainPassword) }}</span>
-        </div>
-        <div class="input-field col s12">
-            <input type="submit" name="" class="btn btn-primary" value="M'inscrire">
-        </div>
-        {{ form_end(registrationForm) }}
     </div>
 {% endblock %}

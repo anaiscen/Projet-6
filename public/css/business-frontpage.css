@@ -1,0 +1,51 @@
+/*!
+ * Start Bootstrap - Business Frontpage (https://startbootstrap.com/template/business-frontpage)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-business-frontpage/blob/master/LICENSE)
+ */
+
+
+body {
+  padding-top: 56px;
+}
+
+.bg-primary {
+  background-image: url(../img/snow.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-dark {
+  background-color: #34547c!important;
+}
+
+a {
+  color: #d4d4d4;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 1.2em !important;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+  color: #FFFFFF;
+}
+
+.container2 {
+  background-color: #e3eceb;
+}
+
+.formStyle {
+  padding: 20px;
+  width: 400px;
+  margin-bottom: 20px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #1a2a92;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  font-size: 1em;
+  font-weight: 100;
+  color: #801919;
+}
+

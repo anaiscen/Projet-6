@@ -65,7 +65,8 @@ class TrickController extends AbstractController
             $em->persist($trick);
             $em->flush();
 
-            return new Response('Le trick a bien été enregistré.');
+            $this->addFlash('info','Le trick a bien été ajouté');
+            return $this->redirectToRoute('trick');
         }
 
         return $this->render('trick/add.html.twig', [
@@ -80,9 +81,7 @@ class TrickController extends AbstractController
      */
     public function show(Trick $trick):Response
     {
-        return $this->render('trick/show.html.twig', [
-            'trick' => $trick
-        ]);
+        return $this->render('trick/show.html.twig', ['trick' => $trick ]);
     }
 
     /**
@@ -125,8 +124,8 @@ class TrickController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($trick);
             $em->flush();
-
-            return new Response('Le trick a été bien modifié');
+            $this->addFlash('info','Le trick a été bien modifié');
+            return $this->redirectToRoute('trick');
         }
 
         return $this->render('trick/edit.html.twig', [
@@ -146,6 +145,7 @@ class TrickController extends AbstractController
         $em->remove($trick);
         $em->flush();
 
-        return new Response('<h1>Trick Supprimé</h1>');
+        $this->addFlash('info','Le trick a été bien supprimé');
+        return $this->redirectToRoute('trick');
     }
 }

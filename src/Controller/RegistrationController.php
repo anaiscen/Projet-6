@@ -60,7 +60,7 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             $email = new TemplatedEmail();
-            $email->subject('SnowTricks user account validation')
+            $email->subject('SnowTricks - Validez votre compte')
                 ->to($user->getEmail())
                 ->from('eee45ee559-c5b5f5@inbox.mailtrap.io')
                 ->html(
@@ -70,6 +70,7 @@ class RegistrationController extends AbstractController
                     'text/html'
                 );
             $mailer->send($email);
+            $this->addFlash('info','Email de validation envoyé, vérifiez votre boîte mail !');
             return $this->redirectToRoute('trick');
         }
 
@@ -94,13 +95,13 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            $this->addFlash('success', 'Your email address has been verified.');
+            $this->addFlash('info', 'Votre compte est validé.');
             return $this->redirectToRoute('app_login');
         }
         else
         {
-            $this->addFlash('verify_email_error','Erreur lors de la validation du compte');
-            return $this->redirectToRoute('app_register');
+            $this->addFlash('error','Erreur lors de la validation du compte : lien invalide');
+            return $this->redirectToRoute('app_login');
         }
     }
 
@@ -127,7 +128,7 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             $email = new TemplatedEmail();
-            $email->subject('SnowTricks - Reset password')
+            $email->subject('SnowTricks - Nouveau mot de passe')
                 ->to($user->getEmail())
                 ->from('eee45ee559-c5b5f5@inbox.mailtrap.io')
                 ->html(
@@ -137,6 +138,7 @@ class RegistrationController extends AbstractController
                     'text/html'
                 );
             $mailer->send($email);
+            $this->addFlash('info','Email envoyé, vérifiez votre boîte mail !');
             return $this->redirectToRoute('trick');
         }
 
@@ -162,8 +164,8 @@ class RegistrationController extends AbstractController
 
         // Check token validity
         if(!$user || $user->getToken() != $token) {
-            $this->addFlash('verify_email_error','The link is not valid');
-            return $this->redirectToRoute('app_password_forgot');
+            $this->addFlash('error',"Erreur, le lien n'est pas valide");
+            return $this->redirectToRoute('app_login');
         }
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -176,7 +178,7 @@ class RegistrationController extends AbstractController
             );
             $entityManager->persist($user);
             $entityManager->flush();
-
+            $this->addFlash('info', 'Mot de passe modifié avec succès.');
             return $this->redirectToRoute('app_login');
         }
         else {

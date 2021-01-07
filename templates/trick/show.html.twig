@@ -1,24 +1,29 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 
 {% block title %}{{ trick.title }}{% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="col s12 m12 l8 offset-l2">
-            <h2>{{ trick.title }}</h2>
-            <h2>{{ trick.group }}</h2>
-            <span>{{ trick.publicationDate|date('d/m/Y') }}</span>
-            <h2><a href="{{ path('trick_edit', {'id': trick.id}) }}">Modifier</a></h2>
-            <h2><a href="{{ path('trick_remove', {'id': trick.id}) }}">Supprimer</a></h2>
-            <p>
-                <img src="{{ asset('uploads/' ~ trick.picture) }}" class="responsive-img">
-            </p>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l8 offset-l2">
+                <h2>{{ trick.title }}</h2>
+                <h2>{{ trick.group }}</h2>
+                <span>{{ trick.publicationDate|date('d/m/Y') }}</span>
+                {% if app.user %}
+                    <h2><a href="{{ path('trick_edit', {'id': trick.id}) }}">Modifier</a></h2>
+                    <h2><a href="{{ path('trick_remove', {'id': trick.id}) }}">Supprimer</a></h2>
+                {% endif %}
+                <p>
+                    <img src="{{ asset('uploads/' ~ trick.picture) }}" class="responsive-img">
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-    <div class="col s12 m12 l8 offset-l2">
-        <p>
-            {{ trick.content }}
-        </p>
+        <div class="row">
+            <div class="col s12 m12 l8 offset-l2">
+                <p>
+                    {{ trick.content }}
+                </p>
+            </div>
+        </div>
     </div>
 {% endblock %}

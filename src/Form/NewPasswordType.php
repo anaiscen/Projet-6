@@ -24,7 +24,7 @@ class NewPasswordType extends AbstractType
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
-                'invalid_message' => 'The password fields must match.',
+                'invalid_message' => 'Les mots de passes no correspondent pas.',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
                 'first_options'  => ['label' => 'Password'],

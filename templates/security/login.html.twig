@@ -4,13 +4,24 @@
 
 {% block content %}
     <div class="container center">
-        <h1>Connexion</h1>
+        <br>
+        <h2 class="text-center mb-0">Connexion</h2>
         <form method="post" class="row">
             {% if error %}
                 <div class="col s12 m6 l6 offset-m3 offset-l3">
                     <span class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
                 </div>
             {% endif %}
+            {% for message in app.flashes('info') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('error') %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+            {% endfor %}
 
             {% if app.user %}
                 <div class="col s12 m6 l6 offset-m3 offset-l3">
