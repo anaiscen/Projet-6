@@ -3,23 +3,49 @@
 {% block title %}{{ trick.title }}{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l8 offset-l2">
-                <h2>{{ trick.title }}</h2>
-                <h2>{{ trick.group }}</h2>
-                <span>{{ trick.publicationDate|date('d/m/Y') }}</span>
-                {% if app.user %}
-                    <h2><a href="{{ path('trick_edit', {'id': trick.id}) }}">Modifier</a></h2>
-                    <h2><a href="{{ path('trick_remove', {'id': trick.id}) }}">Supprimer</a></h2>
-                {% endif %}
-                <p>
-                    <img src="{{ asset('uploads/' ~ trick.picture) }}" class="responsive-img">
-                </p>
+
+    <header class="py-5 mb-5">
+        <div class="container">
+            <div class="row h-100">
+                <div class="col-lg-10">
+                     <h1 class="display-4 text-center">{{ trick.title }}</h1>
+                    <p class="center-block">
+                        <img src="{{ asset('uploads/' ~ trick.picture) }}" width="80%" height="80%">
+                    </p>
+                    <span>Publié le : {{ trick.publicationDate|date('d/m/Y') }}</span>
+                </div>
             </div>
         </div>
+    </header>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                {% for image in trick.images %}
+                    <div class="border">
+                        <img src="{{ asset('uploads/' ~ image.fileName) }}" width="500" class="responsive-img">
+                    </div>
+                {% endfor %}
+                {% for video in trick.videos %}
+                    <div class="border border-dark">
+                        <embed src="{{ asset('uploads/' ~ video.fileName) }}" width="500" class="responsive-img">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
         <div class="row">
-            <div class="col s12 m12 l8 offset-l2">
+            {% if app.user %}
+                <a href="{{ path('trick_edit', {'id': trick.id}) }}">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="{{ path('trick_remove', {'id': trick.id}) }}">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            {% endif %}
+            <div class="col s8 m12 l8">
+                <h2 class="text-center mb-0">{{ trick.group }}</h2>
                 <p>
                     {{ trick.content }}
                 </p>

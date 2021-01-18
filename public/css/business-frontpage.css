@@ -20,7 +20,7 @@ body {
 }
 
 a {
-  color: #d4d4d4;
+  color: #34547c;
   text-decoration: none;
   background-color: transparent;
   font-size: 1.2em !important;
@@ -30,8 +30,20 @@ a {
   color: #FFFFFF;
 }
 
+.a-nav {
+  color: #d4d4d4;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 1.2em !important;
+}
+
 .container2 {
-  background-color: #e3eceb;
+  background-color: #dcdbe2;
+}
+
+.container-fluid {
+  background-color: #dcdbe2;
+
 }
 
 .formStyle {
@@ -40,12 +52,29 @@ a {
   margin-bottom: 20px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #1a2a92;
+  border-bottom-color: #34547c;
   border-top-style: none;
   border-right-style: none;
   border-left-style: none;
   font-size: 1em;
   font-weight: 100;
-  color: #801919;
+  color: #090808;
 }
+
+.btn-primary {
+  color: #d4d4d4;
+  background-color: #34547c;
+  border-color: #34547c;
+}
+
+#footer {
+  background-color: #34547c;
+
+}
+
+.copyright {
+  background-color: #d4d4d4;
+}
+
+
 

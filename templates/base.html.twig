@@ -12,12 +12,20 @@
         <!-- Custom styles for this template -->
         <link href="{{ asset('css/business-frontpage.css') }}" rel="stylesheet">
     {% endblock %}
+    {% block scripts %}
+        <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script type="text/javascript">
+            $('select').formSelect();
+        </script>
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    {% endblock %}
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a href="{{ path('trick') }}" class="brand-logo">SnowTricks</a>
+            <a href="{{ path('trick') }}" class="brand-logo a-nav" >SnowTricks</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i>
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -47,25 +55,36 @@
             </div>
         </div>
     </nav>
+</body>
 
 <div id="content">
 {% block content %}{% endblock %}
 </div>
 
-<!-- Footer -->
-<footer class="py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Anais CEN 2020</p>
-    </div>
-    <!-- /.container -->
-</footer>
+<!-- Footer-->
+<footer class="footer text-center">
+    <div class="container-fluid" id="footer">
+        <div class="row">
+            <!-- Footer Social Icons-->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <medium class="text-center mb-4">Réseaux Sociaux</medium>
+                <br><br>
+                <a class="btn btn-outline-dark btn-social mx-1" href="" target=">Facebook<"><i class="fab fa-fw fa-facebook-f"></i></a>
+                <a class="btn btn-outline-dark btn-social mx-1" href="" target=">Twitter<"><i class="fab fa-fw fa-twitter"></i></a>
+                <a class="btn btn-outline-dark btn-social mx-1" href="" target=">LinkedIn<"><i class="fab fa-fw fa-linkedin-in"></i></a>
+            </div>
+            <!-- Footer General Conditions-->
+            <div class="col-lg-4 mb-5 mb-lg-0 text-left">
+                <medium class="text-center mb-4 ">Politique de confidentialité</medium><br>
+                <medium class="text-center mb-4">CGU</medium><br>
+                <medium class="text-center mb-4">Mentions légales</medium>
 
-{% block scripts %}
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script type="text/javascript">
-        $('select').formSelect();
-    </script>
-{% endblock %}
-</body>
+            </div>
+            <!-- Footer About Text-->
+            <div class="col-lg-4">
+                <medium class="text-center mb-4">Copyright © SnowTricks | Anaïs CEN 2021</medium>
+            </div>
+        </div>
+    </div>
+</footer>
 </html>

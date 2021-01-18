@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Image;
+use App\Form\AddImageType;
+use App\Form\ImageType;
 use App\Form\TrickType;
 use App\Entity\Trick;
 use DateTime;
@@ -70,7 +73,8 @@ class TrickController extends AbstractController
         }
 
         return $this->render('trick/add.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'trick' => new Trick()
         ]);
     }
 
@@ -128,9 +132,15 @@ class TrickController extends AbstractController
             return $this->redirectToRoute('trick');
         }
 
+        $newPicture = new Image();
+        $formNewPicture = $this->createForm(AddImageType::class, $newPicture, [
+            'action' => $this->generateUrl('image_add')
+        ]);
+        $formNewPicture->get('trick_id')->setData($trick->getId());
         return $this->render('trick/edit.html.twig', [
             'trick' => $trick,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'imageForm'=> $formNewPicture->createView(),
         ]);
     }
 
