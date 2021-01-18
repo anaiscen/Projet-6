@@ -52,4 +52,13 @@
             </div>
         </div>
     </div>
+    <h2>Commentaires</h2>
+    {% for comment in trick.comments %}
+        <div class="border">
+            {{ comment.pseudo }} le {{ comment.createdAt|date('d/m/Y') }} :
+            {{ comment.content }}
+            <br>
+        </div>
+    {% endfor %}
+
 {% endblock %}

@@ -128,8 +128,8 @@ class TrickController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($trick);
             $em->flush();
-            $this->addFlash('info','Le trick a été bien modifié');
-            return $this->redirectToRoute('trick');
+            /*$this->addFlash('info','Le trick a été bien modifié');*/
+            return $this->redirectToRoute('trick_edit', ['id' => $trick->getId()]);
         }
 
         $newPicture = new Image();

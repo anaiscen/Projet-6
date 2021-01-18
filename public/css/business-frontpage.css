@@ -4,7 +4,6 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-business-frontpage/blob/master/LICENSE)
  */
 
-
 body {
   padding-top: 56px;
 }
@@ -16,7 +15,7 @@ body {
 }
 
 .bg-dark {
-  background-color: #34547c!important;
+  background-color: #34547c !important;
 }
 
 a {
@@ -26,8 +25,11 @@ a {
   font-size: 1.2em !important;
 }
 
-.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
-  color: #FFFFFF;
+.navbar-dark .navbar-nav .active >.nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show>.nav-link {
+  color: #ffffff;
 }
 
 .a-nav {
@@ -43,7 +45,6 @@ a {
 
 .container-fluid {
   background-color: #dcdbe2;
-
 }
 
 .formStyle {
@@ -69,12 +70,8 @@ a {
 
 #footer {
   background-color: #34547c;
-
 }
 
 .copyright {
   background-color: #d4d4d4;
 }
-
-
-
